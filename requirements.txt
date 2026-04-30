@@ -1,0 +1,11 @@
+pywebview
+requests
+flask
+
+# Solo per Linux
+PyQt6; sys_platform == "linux"
+PyQt5; sys_platform == "linux"
+qtpy; sys_platform == "linux"
+
+# Solo per Windows (opzionale, di solito NON serve)
+pywebview[winforms]; sys_platform == "win32"

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Device Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Device Manager</h1>
+
+<button onclick="loadStatus()">Get Status</button>
+<pre id="status"></pre>
+
+<h2>Config</h2>
+<input id="configInput" placeholder='{"param": "value"}' />
+<button onclick="sendConfig()">Send Config</button>
+
+<script src="app.js"></script>
+</body>
+</html>

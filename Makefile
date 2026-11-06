@@ -10,6 +10,8 @@ APP=app.py
 DIST=dist
 BUILD=build
 
+.PHONY: venv install run run-debug build clean rebuild test
+
 $(VENV)/bin/activate:
 	$(PYTHON) -m venv $(VENV)
 	$(VENV)/bin/pip install --upgrade pip
@@ -17,8 +19,7 @@ $(VENV)/bin/activate:
 # =========================
 # Setup ambiente virtuale
 # =========================
-venv:
-	$(VENV)/bin/activate
+venv: $(VENV)/bin/activate
 
 # =========================
 # Install dipendenze
@@ -48,7 +49,11 @@ build:
 		--onefile \
 		--windowed \
 		--add-data "ui:ui" \
+		$(if $(wildcard scripts/attest_rtu.sh),--add-data "scripts/attest_rtu.sh:scripts") \
 		$(APP)
+
+test:
+	$(PY) -m unittest discover -s test -p 'test_*.py'
 
 # =========================
 # Clean build artifacts

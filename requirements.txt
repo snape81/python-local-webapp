@@ -1,6 +1,8 @@
 pywebview
 requests
 flask
+paramiko
+scp
 
 # Solo per Linux
 PyQt6; sys_platform == "linux"

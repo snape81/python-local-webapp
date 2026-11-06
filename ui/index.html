@@ -1,19 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Device Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Areti RTU - Dante Smart HUB</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Device Manager</h1>
-
-<button onclick="loadStatus()">Get Status</button>
-<pre id="status"></pre>
-
-<h2>Config</h2>
-<input id="configInput" placeholder='{"param": "value"}' />
-<button onclick="sendConfig()">Send Config</button>
+<main>
+    <h1>Prima installazione RTU Areti</h1>
+    <p>Attestazione iniziale alla piattaforma <strong>Dante Smart HUB</strong>.</p>
+    <label for="rtu-ip">Indirizzo IP della RTU</label>
+    <input id="rtu-ip" type="text" placeholder="192.168.1.10" autocomplete="off" required>
+    <p id="connection-status" role="status">Inizializzazione backend locale...</p>
+    <div class="sections">
+        <section>
+            <h2>1. Attestazione</h2>
+            <p>Collegamento SSH, controllo versione, trasferimento SCP ed esecuzione dello script.</p>
+            <p>Avviare solo sulla RTU autorizzata: la procedura modifica il dispositivo.</p>
+            <button id="attest-button" disabled>Avvia attestazione</button>
+            <div id="attest-report" aria-live="polite"></div>
+        </section>
+        <section>
+            <h2>2. Verifica attestazione</h2>
+            <p>Esegue i controlli di attestazione e mostra il risultato di ogni test e l'esito finale.</p>
+            <button id="verify-button" disabled>Verifica attestazione</button>
+            <div id="verify-report" aria-live="polite"></div>
+        </section>
+    </div>
+</main>
 
 <script src="app.js"></script>
 </body>
